@@ -1,0 +1,28 @@
+//Grant dawson COSC 220 Project 1
+This is a project to hold students information and class they have taken or plan to
+
+Each StudentDB class is one school.
+
+This is a interactive database of students and their courses they have take.
+The program is total in the command promt and there is no need for the end user to use the main.cpp
+
+Students hold the students:
+  Name
+  Date of birth (DOB)
+  Major : This is made with a list and as more people use the program the list may get longer
+
+Courses hold the students courses they have take and the info of the course:
+  Department : This is sperate from the majors list but also a expanding list the user picks from and can add too
+  Course number
+  Semester
+  Grade : This is another list the user picks from but can't be add too (N is for no final grade yet)
+
+This will hold as many students/courses your ram will allow
+
+
+
+Lab 8 ===========
+  -I made it so the loops that ask for the users answer for the extra credits wont break
+  -Fixed my valgrind segfault, Missed some edge case for removing a course, if head is null
+  -Fixed remove course function, Could not delete the tail of the course list if more than 3
+  
