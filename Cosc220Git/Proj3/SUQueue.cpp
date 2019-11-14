@@ -1,4 +1,3 @@
-#include "SUQueue.h"
 
 //defualt constructor
 template<class DataType>

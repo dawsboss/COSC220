@@ -1,7 +1,7 @@
 #include<iostream>
 //#include "SUList.h"
 #include "SUStack.h"
-//#include "SUQueue.h"
+#include "SUQueue.h"
 //#include "PayRoll.h"
 
 /**
@@ -28,19 +28,21 @@ int main(){
    * First, make sure our templates are available.
    */
    PayRoll x;
+   int y;
 
   SUList<int> myList;
   SUList<PayRoll> pList;
 
-/*  SUStackArr<int> iStackArr; // TODO
-  SUStackArr<PayRoll> pStackArr; // TODO
-  SUStackList<int> iStackList; // TODO*/
-  SUStackList<PayRoll> pStackList;
+  // SUStackArr<int> iStackArr; // TODO
+  // SUStackArr<PayRoll> pStackArr; // TODO
+   SUStackList<int> iStackList;
+   SUStackList<PayRoll> pStackList;
+   SUStackList<PayRoll> pStackList2;
 
-  /*SUQueueArr<int> iQueueArr; // TODO
-  SUQueueArr<PayRoll> pQueueArr; // TODO
-  SUQueueList<int> iQueueList; // TODO
-  SUQueueList<PayRoll> pQueueList; // TODO*/
+  // SUQueueArr<int> iQueueArr; // TODO
+  // SUQueueArr<PayRoll> pQueueArr; // TODO
+   SUQueueList<int> iQueueList; // TODO
+   SUQueueList<PayRoll> pQueueList; // TODO
 
   /**
    * Test the SUList using ints
@@ -70,8 +72,7 @@ int main(){
   pList.putBack(PayRoll(25, 35,"Charlie"));
   pList.putBack(PayRoll(10, 35,"Diana"));
   pList.putFront(PayRoll(30, 35,"Eve"));
-  x=pList.getBack();
-  x.printInfo();
+
   pList.display();
 
   std::cout << "++++++++++++\n";
@@ -86,58 +87,47 @@ int main(){
   pStackList.push(PayRoll(30, 35,"Eve"));
   pStackList.pop(x);
   pStackList.printStack();
-  std::cout<<"+++++++popped lad+++++++++"<<endl;
+  std::cout<<"+++++++ popped lad +++++++++"<<endl;
   x.printInfo();
   std::cout << "++++++++++++\n";
   pStackList.printStack();
 
+  std::cout << "++++++++++++\n";
+
+  iStackList.push(10);
+  iStackList.push(102);
+  iStackList.push(1);
+  iStackList.push(50);
+
+  iStackList.printStack();
+
+  std::cout << "+++++++ =operator +++++++++\n";
+
+  pStackList2 = pStackList;
+  pStackList2.printStack();
+
+  std::cout << "+++++++ Queue Lad +++++++++\n";
+
+  iQueueList.enqueue(1000);
+  iQueueList.enqueue(1523);
+  iQueueList.enqueue(2);
+  iQueueList.dequeue(y);
+  iQueueList.printQueue();
+
+  std::cout << "++++++++++++\n";
+
+  pQueueList.enqueue(PayRoll( 20, 35,"Bob"));
+  pQueueList.enqueue(PayRoll(10, 35,"Alice"));
+  pQueueList.enqueue(PayRoll(25, 35,"Charlie"));
+  pQueueList.enqueue(PayRoll(10, 35,"Diana"));
+  pQueueList.enqueue(PayRoll(30, 35,"Eve"));
+
+  pQueueList.printQueue();
+
+  pQueueList.dequeue(x);
+  std::cout<<"+++++++ popped lad +++++++++"<<endl;
+  x.printInfo();
+  std::cout << "++++++++++++\n";
+  pQueueList.printQueue();
   return 0;
 }
-
-/** OUTPUT OF THIS PROGRAM
-
-3
-2
-6
-1
-4
-5
-++++++++++++
-=======================
-Name:	Eve
-Rate:	35
-Hours:	30
-Total:	1050
-this==&old
-=======================
-Name:	Alice
-Rate:	35
-Hours:	10
-Total:	350
-
-=======================
-Name:	Bob
-Rate:	35
-Hours:	20
-Total:	700
-
-=======================
-Name:	Charlie
-Rate:	35
-Hours:	25
-Total:	875
-
-=======================
-Name:	Diana
-Rate:	35
-Hours:	10
-Total:	350
-
-++++++++++++
-=======================
-Name:	Eve
-Rate:	35
-Hours:	20
-Total:	700
-
-*/

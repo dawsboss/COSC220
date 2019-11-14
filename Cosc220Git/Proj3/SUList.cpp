@@ -9,10 +9,11 @@ template<class DataType>
 SUList<DataType>::SUList(const SUList& old){
   if(old.head==nullptr){//checks to see if there is a old head
     head=nullptr;
+    tail=nullptr;
   }else{//if there is then
     ListNode* oldCursor=old.head;
     while(oldCursor){//pushes everything over
-      push(oldCursor->data);
+      putBack(oldCursor->data);
       oldCursor=oldCursor->next;
     }
   }
@@ -25,7 +26,7 @@ template<class DataType>
     }
     ListNode* oldCursor=old.head;
     while(oldCursor){
-      push(oldCursor->data);
+      putBack(oldCursor->data);
       oldCursor=oldCursor->next;
     }
   return *(this);
@@ -53,6 +54,7 @@ DataType SUList<DataType>::getFront(){
     rtn=head->data;
     delete head;
     head=nullptr;
+    tail=nullptr;
     return rtn;
   }
   rtn=head->data;
@@ -100,6 +102,7 @@ void SUList<DataType>::putBack(const DataType&x){
   ListNode* newNode = new ListNode;
   newNode->data=x;
   newNode->next=nullptr;
+    tail=newNode;
   if(!head){
     head=newNode;
     return;
