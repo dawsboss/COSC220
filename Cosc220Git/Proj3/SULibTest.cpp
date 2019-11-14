@@ -1,8 +1,8 @@
 #include<iostream>
-#include "SUList.h"
-//#include "SUStack.h"
+//#include "SUList.h"
+#include "SUStack.h"
 //#include "SUQueue.h"
-#include "PayRoll.h"
+//#include "PayRoll.h"
 
 /**
  * This program provides a slightly-more-than-minimal
@@ -27,19 +27,20 @@ int main(){
   /*
    * First, make sure our templates are available.
    */
+   PayRoll x;
 
   SUList<int> myList;
   SUList<PayRoll> pList;
 
-  //SUStackArr<int> iStackArr; // TODO
-  //SUStackArr<PayRoll> pStackArr; // TODO
-  //SUStackList<int> iStackList; // TODO
-  //SUStackList<PayRoll> pStackList;
+/*  SUStackArr<int> iStackArr; // TODO
+  SUStackArr<PayRoll> pStackArr; // TODO
+  SUStackList<int> iStackList; // TODO*/
+  SUStackList<PayRoll> pStackList;
 
-  //SUQueueArr<int> iQueueArr; // TODO
-  //SUQueueArr<PayRoll> pQueueArr; // TODO
-  //SUQueueList<int> iQueueList; // TODO
-  //SUQueueList<PayRoll> pQueueList; // TODO
+  /*SUQueueArr<int> iQueueArr; // TODO
+  SUQueueArr<PayRoll> pQueueArr; // TODO
+  SUQueueList<int> iQueueList; // TODO
+  SUQueueList<PayRoll> pQueueList; // TODO*/
 
   /**
    * Test the SUList using ints
@@ -61,7 +62,7 @@ int main(){
 
   std::cout << "++++++++++++\n";
 
-  /**
+  /*
    * Test the SUList using PayRoll
    */
   pList.putFront(PayRoll( 20, 35,"Bob"));
@@ -69,7 +70,8 @@ int main(){
   pList.putBack(PayRoll(25, 35,"Charlie"));
   pList.putBack(PayRoll(10, 35,"Diana"));
   pList.putFront(PayRoll(30, 35,"Eve"));
-
+  x=pList.getBack();
+  x.printInfo();
   pList.display();
 
   std::cout << "++++++++++++\n";
@@ -77,12 +79,17 @@ int main(){
   /**
    * Test the SUStack using PayRoll
    */
-  /*pStackList.push(PayRoll("Bob", 20, 35));
-  pStackList.push(PayRoll("Alice", 20, 35));
-  pStackList.push(PayRoll("Charlie", 20, 35));
-  pStackList.push(PayRoll("Diana", 20, 35));
-  pStackList.push(PayRoll("Eve", 20, 35));
-  pStackList.pop().printCheck();*/
+  pStackList.push(PayRoll( 20, 35,"Bob"));
+  pStackList.push(PayRoll(10, 35,"Alice"));
+  pStackList.push(PayRoll(25, 35,"Charlie"));
+  pStackList.push(PayRoll(10, 35,"Diana"));
+  pStackList.push(PayRoll(30, 35,"Eve"));
+  pStackList.pop(x);
+  pStackList.printStack();
+  std::cout<<"+++++++popped lad+++++++++"<<endl;
+  x.printInfo();
+  std::cout << "++++++++++++\n";
+  pStackList.printStack();
 
   return 0;
 }
@@ -101,7 +108,7 @@ Name:	Eve
 Rate:	35
 Hours:	30
 Total:	1050
-
+this==&old
 =======================
 Name:	Alice
 Rate:	35
