@@ -39,9 +39,8 @@ template<class DataType>
 void SUQueueList<DataType>::dequeue(DataType& x){
   try{
     x=list.getFront();
-  }catch(int n){
-    if(n==-1)
-      throw "Queue is empty!";
+  }catch(string n){
+      throw n;
   }catch(...){
     throw "An unknown error has occured...";
   }

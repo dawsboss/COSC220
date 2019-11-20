@@ -42,13 +42,33 @@ SUList<DataType>::~SUList(){
   }
 }
 //Pops the front/head
+// template<class DataType>
+// DataType SUList<DataType>::getFront(){
+//   ListNode* cursor=head;
+//   DataType rtn;
+//   //TODO Need to fix if there is no head
+//   if(!head){
+//     throw "Queue is empty!";
+//   }
+//   if(!head->next){
+//     rtn=head->data;
+//     delete head;
+//     head=nullptr;
+//     tail=nullptr;
+//     return rtn;
+//   }
+//   rtn=head->data;
+//   head=head->next;
+//   delete cursor;
+//   return rtn;
+// }
 template<class DataType>
 DataType SUList<DataType>::getFront(){
   ListNode* cursor=head;
   DataType rtn;
   //TODO Need to fix if there is no head
   if(!head){
-    throw -1;
+    throw "Queue is empty!";
   }
   if(!head->next){
     rtn=head->data;
@@ -63,66 +83,112 @@ DataType SUList<DataType>::getFront(){
   return rtn;
 }
 //pops the end of the list
+// template<class DataType>
+// DataType SUList<DataType>::getBack(){
+//   ListNode* cursor=head;
+//   ListNode* prev=head;
+//   DataType temp;
+//   if(!head){//if the stack is empty when it tries to pop
+//     throw "Queue is empty!";
+//   }
+//   if(!head->next){//if there is only one item left than pop it
+//     temp = head->data;
+//     delete head;
+//     head=nullptr;
+//     return temp;
+//   }
+//   while(cursor->next){//finds end with a prev
+//     prev=cursor;
+//     cursor=cursor->next;
+//   }
+//   prev->next=nullptr;
+//   temp = cursor->data;
+//   delete cursor;//detatches and deltes end but before it sends it
+//   return temp;
+// }
 template<class DataType>
 DataType SUList<DataType>::getBack(){
   ListNode* cursor=head;
   ListNode* prev=head;
   DataType temp;
   if(!head){//if the stack is empty when it tries to pop
-    throw -1;
+    throw "Queue is empty!";
   }
-  if(!head->next){//if there is only one item left than pop it
-    temp = head->data;
-    delete head;
-    head=nullptr;
+  if(head->next==tail){
+    cursor=tail;
+    temp=tail->data;
+    head->next=nullptr;
+    delete cursor;
     return temp;
   }
-  while(cursor->next){//finds end with a prev
-    prev=cursor;
-    cursor=cursor->next;
+  if(head==tail){
+    temp=head->data;
+    delete head;
+    return temp;
   }
-  prev->next=nullptr;
-  temp = cursor->data;
-  delete cursor;//detatches and deltes end but before it sends it
+  temp=tail->data;
+  prev=tail;
+  cursor=tail->previous;
+  cursor->next=nullptr;
+  delete prev;
   return temp;
 }
 //This will push a new dataType onto the front of the list
+// template<class DataType>
+// void SUList<DataType>::putFront(const DataType&x){
+//   ListNode* newNode = new ListNode;
+//   newNode->data=x;
+//   newNode->next=head;
+//   newNode->previous=nullptr;
+//   //head->prev
+//   head=newNode;
+// }
 template<class DataType>
 void SUList<DataType>::putFront(const DataType&x){
   ListNode* newNode = new ListNode;
   newNode->data=x;
+  if(!head){
+    head=newNode;
+    tail=newNode;
+    newNode->next=nullptr;
+    newNode->previous=nullptr;
+  }
   newNode->next=head;
   newNode->previous=nullptr;
-  //head->prev
+  head->previous=newNode;
   head=newNode;
 }
 //This will push a new Datatype into the bakc of the list
+// template<class DataType>
+// void SUList<DataType>::putBack(const DataType&x){
+//   ListNode* newNode = new ListNode;
+//   newNode->data=x;
+//   newNode->next=nullptr;
+//     tail=newNode;
+//   if(!head){
+//     head=newNode;
+//     return;
+//   }
+//   ListNode* cursor=head;
+//   while(cursor->next){
+//     cursor=cursor->next;
+//   }
+//   cursor->next=newNode;
+// }
 template<class DataType>
 void SUList<DataType>::putBack(const DataType&x){
   ListNode* newNode = new ListNode;
   newNode->data=x;
   newNode->next=nullptr;
-    tail=newNode;
   if(!head){
     head=newNode;
-    return;
+    tail=newNode;
+    newNode->next=nullptr;
+    newNode->previous=nullptr;
   }
-  ListNode* cursor=head;
-  while(cursor->next){
-    cursor=cursor->next;
-  }
-  cursor->next=newNode;
-}
-//This will return the number of links in the list
-template<class DataType>
-int SUList<DataType>::size()const{
-  int counter=0;
-  ListNode* cursor=head;
-  int coutner=1;
-  while(cursor){
-    counter++;
-  }
-  return counter;
+  newNode->previous=tail;
+  tail->next=newNode;
+  tail=newNode;
 }
 //checks to see if there is a desired DataType in the list
 //NOTE: This function will require that the datta type has the == operator

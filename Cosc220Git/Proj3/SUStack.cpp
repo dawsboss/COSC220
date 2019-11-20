@@ -37,9 +37,8 @@ void SUStackList<DataType>::pop(DataType& x){
     x=list.getBack();
     std::cout<<"-----=========-------\n";
     x.printInfo();
-  }catch(int n){
-    if(n==-1)
-      throw "Queue is empty!";
+  }catch(string n){
+      throw n;
   }catch(...){
     throw "An unknown error has occured...";
   }
