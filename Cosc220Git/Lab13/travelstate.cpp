@@ -36,15 +36,21 @@ GameState* TravelState::handleInput(std::string in) {
       rtn = new TravelState(direction);
       break;
     case SIT_OPTION:
-      rtn = nullptr;
+      //rtn = nullptr;
       // TODO: construct and return a new idlestate
       // currently this will cause a segfault if the user
       // tries to sit down!
-      //rtn = new IdleState(direction);
+      std::cout<<"\nYou take a seat..."<<std::endl;
+      rtn = new IdleState(direction);
       break;
     case FORK_OPTION:
       std::cout << "\nYou take the fork...\n";
       rtn = new TravelState(newDirection);
+      break;
+    case MONSTER_OPTION:
+      std::cout<<"\nYou fight the monster..."<<std::endl;
+      rtn=new CombatState(newDirection);
+      //rtn=nullptr;
       break;
     default:
       std::cout << "Invalid option.\n";

@@ -20,6 +20,8 @@ class GameState {
 
     // will take the input and handle it appropriately
     virtual GameState* handleInput(std::string) = 0;
+
+    virtual ~GameState(){};
 };
 
 #endif

@@ -2,12 +2,17 @@
 #define TRAVELSTATE_H
 
 #include "gamestate.h"
+#include "idlestate.h"
+#include "combatstate.h"
 #include <stdlib.h>
 #include <time.h>
 #include <list>
 
 class TravelState : public GameState {
   private:
+
+    //Denotes if there is a monster
+    bool hasMonster;
     // Current direction of travel
     std::string direction;
 
@@ -21,7 +26,8 @@ class TravelState : public GameState {
     enum Choices{
       CONTINUE_OPTION = 1,
       SIT_OPTION      = 2,
-      FORK_OPTION     = 3
+      FORK_OPTION     = 3,
+      MONSTER_OPTION  = 4
     };
 
   public:
@@ -46,12 +52,22 @@ class TravelState : public GameState {
       } else {
         hasCrossroad = false;
       }
-      
+
+      srand(time(0));
+      if( rand()%10 + 1 > 9 ){
+        hasMonster=true;
+      }else{
+        hasMonster=false;
+      }
+
       // Set up the choice text for the user
       choices[CONTINUE_OPTION] = "Keep walking.";
       choices[SIT_OPTION] = "Sit and rest.";
       if (hasCrossroad){
         choices[FORK_OPTION] = "Take the " + newDirection + " fork.";
+      }
+      if(hasMonster){
+        choices[MONSTER_OPTION] = "Fight the monster.";
       }
     }
 

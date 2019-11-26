@@ -7,7 +7,7 @@
  * Until the user exits or the program forces an
  * exit, we:
  *
- * 1. Get the list of current options from the 
+ * 1. Get the list of current options from the
  *    current GameState object
  * 2. Get the user input
  * 3. Pass that input to the current state to be
@@ -22,6 +22,7 @@
  */
 
 int main(){
+  GameState* oldState;
   std::string input;
 
   // GameState is an abstract base class,
@@ -33,6 +34,7 @@ int main(){
   currentState = new TravelState("North");
 
   while(true){
+    oldState=currentState;
     // 1. Get options from the state
     currentState->printOptions();
 
@@ -41,5 +43,7 @@ int main(){
 
     // 3. Pass input to the state, and get the new state
     currentState = currentState->handleInput(input);
+    delete oldState;
   }
+  delete currentState;
 }
