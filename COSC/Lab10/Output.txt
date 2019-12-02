@@ -1,0 +1,111 @@
+bash-4.2$ make
+g++ -c -g -std=c++11 quicksort.cpp
+g++ -g -std=c++11 quicksort.o -o main
+bash-4.2$ clear
+bash-4.2$ ./main
+21 67 75 2 36 14 55 25 4 41
+Desired array in ascending order:
+Tested quickSort on : 1000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.000863789s
+Desired array in decending order
+Tested quickSort on : 1000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00108636s
+Desired array is randomly order
+Tested quickSort on : 1000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00025201s
+============
+Desired array in ascending order:
+Tested quickSort on : 5000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00472979s
+Desired array in decending order
+Tested quickSort on : 5000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00573858s
+Desired array is randomly order
+Tested quickSort on : 5000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00162151s
+============
+Desired array in ascending order:
+Tested quickSort on : 10000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00934831s
+Desired array in decending order
+Tested quickSort on : 10000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.0106487s
+Desired array is randomly order
+Tested quickSort on : 10000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.00368413s
+============
+Desired array in ascending order:
+Tested quickSort on : 50000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.0644313s
+Desired array in decending order
+Tested quickSort on : 50000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.0724347s
+Desired array is randomly order
+Tested quickSort on : 50000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.0482293s
+============
+Desired array in ascending order:
+Tested quickSort on : 100000 values
+Finished at Tue Oct 29 15:32:09 2019
+ elapsed time 0.191388s
+Desired array in decending order
+Tested quickSort on : 100000 values
+Finished at Tue Oct 29 15:32:10 2019
+ elapsed time 0.162142s
+Desired array is randomly order
+Tested quickSort on : 100000 values
+Finished at Tue Oct 29 15:32:10 2019
+ elapsed time 0.127455s
+============
+Desired array in ascending order:
+Tested quickSort on : 250000 values
+Finished at Tue Oct 29 15:32:11 2019
+ elapsed time 0.818051s
+Desired array in decending order
+Tested quickSort on : 250000 values
+Finished at Tue Oct 29 15:32:13 2019
+ elapsed time 0.844968s
+Desired array is randomly order
+Tested quickSort on : 250000 values
+Finished at Tue Oct 29 15:32:14 2019
+ elapsed time 0.762157s
+============
+Desired array in ascending order:
+Tested quickSort on : 500000 values
+Finished at Tue Oct 29 15:32:20 2019
+ elapsed time 3.09544s
+Desired array in decending order
+Tested quickSort on : 500000 values
+Finished at Tue Oct 29 15:32:26 2019
+ elapsed time 3.15342s
+Desired array is randomly order
+Tested quickSort on : 500000 values
+Finished at Tue Oct 29 15:32:29 2019
+ elapsed time 2.98225s
+============
+Desired array in ascending order:
+Tested quickSort on : 1000000 values
+Finished at Tue Oct 29 15:32:53 2019
+ elapsed time 12.0495s
+Desired array in decending order
+Tested quickSort on : 1000000 values
+Finished at Tue Oct 29 15:33:17 2019
+ elapsed time 12.1717s
+Desired array is randomly order
+Tested quickSort on : 1000000 values
+Finished at Tue Oct 29 15:33:28 2019
+ elapsed time 11.809s
+============
+bash-4.2$
