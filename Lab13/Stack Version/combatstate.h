@@ -17,8 +17,7 @@ class CombatState: public GameState {
     int Monhealth;
     int HumDamage;
   public:
-    CombatState(std::string dir){
-      direction = dir;
+    CombatState(){
       //Randomly makes the monsters health
       Monhealth=(rand()%5 + 16);
       //Randomly makes the humans damage output
@@ -28,18 +27,9 @@ class CombatState: public GameState {
       choices[LEAVE_OPTION] = "Run away, iDiOt";
     };
 
-    CombatState(std::string dir, int MHealth, int HDamage){
-      Monhealth=MHealth;
-      HumDamage=HDamage;
-      direction=dir;
-
-      choices[CONTINUE_OPTION] = "Fight.";
-      choices[LEAVE_OPTION] = "Run away, iDiOt";
-    };
-
     void printOptions() override;
 
-    GameState* handleInput(std::string) override;
+    void handleInput(std::string, std::stack<GameState*>&) override;
 
 
 };

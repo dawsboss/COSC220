@@ -24,8 +24,15 @@
 
 int main(){
 
+
+  std::stack<GameState*> gameStates;
+  gameStates.push(new TravelState("North"));
+
+
+
+
+
   srand(21/*time(0)*/);
-  GameState* oldState;
   std::string input;
 
   // GameState is an abstract base class,
@@ -34,10 +41,10 @@ int main(){
   GameState* currentState;
 
   // Start the user off in a travel state, headed north
-  currentState = new TravelState("North");
+
 
   while(true){
-    oldState=currentState;
+    currentState = gameStates.top();
     // 1. Get options from the state
     currentState->printOptions();
 
@@ -45,8 +52,8 @@ int main(){
     std::getline(std::cin, input);
 
     // 3. Pass input to the state, and get the new state
-    currentState = currentState->handleInput(input);
-    delete oldState;
+
+    currentState->handleInput(input,gameStates);
   }
   delete currentState;
 }

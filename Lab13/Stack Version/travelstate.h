@@ -8,6 +8,7 @@
 #include <time.h>
 #include <list>
 
+
 class TravelState : public GameState {
   private:
 
@@ -32,6 +33,7 @@ class TravelState : public GameState {
 
   public:
     TravelState(std::string dir){
+      std::cout<<"Test"<<std::endl;
       direction = dir;
 
       // Randomly add a fork in the road
@@ -71,7 +73,7 @@ class TravelState : public GameState {
 
     void printOptions() override;
 
-    GameState* handleInput(std::string) override;
+    void handleInput(std::string, std::stack<GameState*>&) override;
 
 };
 

@@ -29,37 +29,33 @@ void CombatState::printOptions(){
 
 }
 
-GameState* CombatState::handleInput(std::string in){
+void CombatState::handleInput(std::string in, std::stack<GameState*>& states){
 
   // cast the string to an int to be interpreted as a choice
   int choice = std::stoi(in);
-
-  // Temp variable to hold the new game state
-  GameState* rtn;
 
   switch (choice){
     case CONTINUE_OPTION:
 
       if((Monhealth-HumDamage)<=0){
         std::cout<<"You killed the monster...\n";
-        rtn=new TravelState(direction);
+        delete states.top();
+        states.pop();
+        //rtn=new TravelState(direction);
       }else{
         std::cout << "\nYou continue fighting...\n";
         Monhealth-=HumDamage;
-        return this;
+        //return this;
         //rtn = new CombatState(direction, Monhealth-HumDamage, HumDamage);
       }
       break;
     case LEAVE_OPTION:
       std::cout << "\nYou run away, IdIoT...\n";
-      rtn = new TravelState(direction);
+      //rtn = new TravelState(direction);
+
       break;
     default:
       std::cout << "Invalid option.\n";
-      rtn = this;
       break;
   };
-
-  return rtn;
-
 }
