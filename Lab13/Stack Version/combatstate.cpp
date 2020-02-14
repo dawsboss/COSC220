@@ -45,6 +45,7 @@ void CombatState::handleInput(std::string in, std::stack<GameState*>& states){
       }else{
         std::cout << "\nYou continue fighting...\n";
         Monhealth-=HumDamage;
+	//states.push(this); // to make sure it gets reused
         //return this;
         //rtn = new CombatState(direction, Monhealth-HumDamage, HumDamage);
       }

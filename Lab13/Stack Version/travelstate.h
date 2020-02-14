@@ -31,6 +31,8 @@ class TravelState : public GameState {
       MONSTER_OPTION  = 4
     };
 
+    ~TravelState();
+
   public:
     TravelState(std::string dir){
       std::cout<<"Test"<<std::endl;

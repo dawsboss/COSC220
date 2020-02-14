@@ -23,6 +23,9 @@ void TravelState::printOptions() {
   }
 };
 
+TravelState::~TravelState(){
+}
+
 void TravelState::handleInput(std::string in, std::stack<GameState*>& states) {
   // cast the string to an int to be interpreted as a choice
   int choice = std::stoi(in);
@@ -46,10 +49,9 @@ void TravelState::handleInput(std::string in, std::stack<GameState*>& states) {
       states.push(new IdleState());
       break;
     case FORK_OPTION:
-      std::cout << "\nYou take the fork...\n";
+      std::cout << "\nYou take the fork...";
       //rtn = new TravelState(newDirection);
       delete states.top();
-      states.pop();
       states.push(new TravelState(newDirection));
       break;
     case MONSTER_OPTION:

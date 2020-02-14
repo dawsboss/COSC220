@@ -52,7 +52,6 @@ int main(){
     std::getline(std::cin, input);
 
     // 3. Pass input to the state, and get the new state
-
     currentState->handleInput(input,gameStates);
   }
   delete currentState;

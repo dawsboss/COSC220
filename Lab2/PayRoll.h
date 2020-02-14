@@ -16,11 +16,11 @@ class PayRoll{
     float getPay();
     float getWorkTime();
     string getName();
-    
+
     void setWorkTime(float newPay);
     void setPay(float newWork);
     void setName(string newName);
-    
+
     void printInfo();
     float totalPay();
 
