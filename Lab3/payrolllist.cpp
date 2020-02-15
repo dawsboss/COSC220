@@ -9,7 +9,7 @@ PayRollList::PayRollList(){
 };
 
 PayRollList::~PayRollList(){//go through the whole list dealeteing each then finally both pointers
-  
+
   ListNode* cursor=head;
   while(head){
     head=head->next;
@@ -19,14 +19,14 @@ PayRollList::~PayRollList(){//go through the whole list dealeteing each then fin
 };
 
 void PayRollList::insert(string name, float pay, float hours)//inserts a new node in sorted order by its pay/hr
-{ 
+{
   PayRoll temp(pay, hours, name);
   ListNode *newNode = new ListNode;
   newNode->p = temp;
   newNode->next=nullptr;
   ListNode* cursor=head;
   ListNode* previous=head;
-  
+
   if(!head){//if head is null get the list started
     head=newNode;
     return;
@@ -50,16 +50,16 @@ void PayRollList::insert(string name, float pay, float hours)//inserts a new nod
       return;
   }
     cursor->next = newNode;  //if there is a new max and spill over my conditionals
-  
+
 }
 
 void PayRollList::insert(PayRoll x){//takes a premade oayroll obj and just gives it's data to the other insert function.
   insert(x.getName(), x.getPay(), x.getWorkTime());
 }
 
-void PayRollList::printPayChecks(){//prints out each 
+void PayRollList::printPayChecks(){//prints out each
   ListNode* cursor=head;
- 
+
   while(cursor){ // for ever cursor print its info in this sentence
     cout<<cursor->p.getName()<<" worked "<<cursor->p.getWorkTime()<<" hours and is paid ";
     printf("$ %4.2f", cursor->p.getPay());
