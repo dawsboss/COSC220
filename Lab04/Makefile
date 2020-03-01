@@ -11,4 +11,4 @@ payrolllist.o: payrolllist.cpp payrolllist.h
 	g++ -c -std=c++11 payrolllist.cpp
     
 clean:
-	rm *.o main
+	rm *.o -f main

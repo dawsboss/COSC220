@@ -5,4 +5,4 @@ main.o: main.cpp
 	g++ -c -g -std=c++11 main.cpp
 
 clean:
-	rm *.o -f StudentDB
+	rm *.o -f main 

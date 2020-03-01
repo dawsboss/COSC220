@@ -11,4 +11,4 @@ HanoiStack.o: HanoiStack.cpp
 	g++ -c -std=c++11 HanoiStack.cpp -g
 
 clean:
-	rm *.o -f StudentDB
+	rm *.o -f main 

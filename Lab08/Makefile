@@ -14,4 +14,4 @@ Student.o: Student.cpp Student.h
 	g++ -c Student.cpp -std=c++11
 
 clean :
-	rm *.o main
+	rm *.o -f main
